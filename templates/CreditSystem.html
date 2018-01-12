@@ -1,0 +1,162 @@
+<style>
+
+    h1 {
+        text-align: center;
+    }
+
+    #tab {
+        background-color: white;
+        text-align: center;
+    }
+
+    #loan {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        margin-left:150px;
+        width: 40%;
+        height: 30px;
+        text-align: center;
+    }
+
+    #loan tr:nth-child(even){background-color: #f2f2f2;}
+
+    #loan tr:hover {background-color: #ddd;}
+
+    #clear {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        margin-left:400px;
+        width: 30%;
+        height: 30px;
+        text-align: center;
+    }
+
+    #clear tr:nth-child(even) {background-color: #f2f2f2;}
+
+    #clear tr:hover {background-color: #ddd;}
+
+    #head {
+        border: 1px solid black;
+        padding: 30px;
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+    }
+    td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    #reward {
+        margin-left:100px;
+        color: red;
+        font-size: 20px;
+    }
+
+    #new {
+        margin-left: 150px;
+        color: red;
+        font-size: 20px;
+    }
+
+    #pic {
+        margin-left:400px;
+    }
+
+</style>
+
+{% extends 'layout.html' %}
+{% block body %}
+<div style="height:50px"></div>
+<div id = 'tab'>
+<h1>Credit Score for the month of December</h1>
+<p id="calender"></p>
+<table id="loan" style = 'width:80%'>
+    <tr>
+        <th id="head">Loan</th>
+        <th id="head">Status</th>
+        <th id="head">Due Date</th>
+        <th id="head">Amount Payable</th>
+        <th id="head">Bank</th>
+    </tr>
+
+    <tr>
+        <td id="show">Study loan<button onclick="myFunction1()">Start date</button></td>
+        <td>Not Paid<form><input type="button"value="Pay Now!!" onclick="window.location.href='https://www.dbs.com.sg/personal/loans/education-loans/tuition-fee-loan'"></form></td>
+        <td>13 December 2017</td>
+        <td>$250/month</td>
+        <td>DBS</td>
+
+    </tr>
+
+    <tr>
+        <td id="show1">Auto loan<br><button onclick="myFunction2()">Start date</button></td>
+        <td>Not Paid<form><input type="button"value="Pay Now!!" onclick="window.location.href='http://www.ocbc.com/personal-banking/loans/car-refinancing.html'"></form></td>
+        <td>17 December 2017</td>
+        <td>$400/month</td>
+        <td>OCBC</td>
+    </tr>
+
+    <tr>
+        <td id="show2">Personal loan<br><button onclick="myFunction3()">Start date</button></td>
+        <td>Paid</td>
+        <td>1 December 2017</td>
+        <td>$100/month</td>
+        <td>DBS</td>
+    </tr>
+
+    <tr>
+        <td>Total Credit Score:</td>
+        <td>90/100</td>
+        <td>2 Outstanding loans to be cleared as of November 2017</td>
+        <td>Total amount payable for the month: $650</td>
+        <td>click me to redeem rewards!!<button type="button">REWARDS</button></td>
+    </tr>
+</table>
+<br>
+<p id="reward">Note: Rewards are subjected to availability and 1 reward can be redeem each month. Given by different individual banks</p>
+<p id="reward">Minimum point for redemption: 90/100</p>
+</div>
+
+<div id= "full">
+<h1>Past Loans Record</h1>
+<table id = 'clear'>
+    <tr>
+        <th id="head">Loan</th>
+        <th id="head">Total Payment(With interest charged)</th>
+        <th id="head">Date of Clearance</th>
+    </tr>
+
+    <tr>
+        <td>Study Loan</td>
+        <td>$10890</td>
+        <td>20 June 2017</td>
+    </tr>
+</table>
+<br>
+<p id="new">Wish to apply a new loan? click to find out which loan provides the least amount of interest payable! <button type="button">Loans</button></p>
+</div>
+<div id="pic">
+<img src = "static/images/example_barchart.png" style="width:500px;height:400px;">
+</div>
+<div style="height:200px">
+</div>
+<script>
+
+var d = new Date();
+document.getElementById("calender").innerHTML = d;
+
+function myFunction1() {
+    document.getElementById("show").innerHTML = "Loan Date:13 February 2017(1 year loan)";
+}
+
+function myFunction2() {
+    document.getElementById("show1").innerHTML = "Loan Date:17 March 2016(3 years loan)";
+}
+
+function myFunction3() {
+    document.getElementById("show2").innerHTML = "Loan Date:1 Jan 2017(1 year loan)";
+}
+</script>
+
+{% endblock %}
